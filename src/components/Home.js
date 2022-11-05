@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import {FaEye, FaPen, FaTrash} from 'react-icons/fa'
 
 const Home = () => {
 
@@ -17,7 +18,7 @@ const Home = () => {
 
     return (
         <div className='container'>
-            <table className="my-4 table shadow">
+            <table className="my-4 table table-secondary shadow">
                 <thead className='table-dark'>
                     <tr>
                         <th scope="col">No</th>
@@ -36,9 +37,9 @@ const Home = () => {
                                 <td>{user.username}</td>
                                 <td>{user.email}</td>
                                 <td>
-                                    <button className="btn btn-primary  rounded-0">View</button>
-                                    <button className="btn btn-success mx-2 rounded-0">Edit</button>
-                                    <button className="btn btn-outline-danger rounded-0">Delete</button>
+                                    <button className="btn btn-outline-primary  rounded-0"><FaEye/></button>
+                                    <button className="btn btn-outline-success mx-2 rounded-0"><FaPen/></button>
+                                    <button className="btn btn-outline-danger rounded-0"><FaTrash/></button>
                                 </td>
                             </tr>
                         ))

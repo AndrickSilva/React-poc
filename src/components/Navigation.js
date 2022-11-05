@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import {FaUserPlus} from 'react-icons/fa'
 
 const Navigation = () => {
     return (
@@ -21,7 +22,7 @@ const Navigation = () => {
                             <NavLink className="nav-link" to="/Contact">Contact</NavLink>
                         </li>
                     </ul>
-                    <Link className="btn btn-primary rounded-2 align-flex-start rounded-5" to="/User/add">Add User</Link>
+                    <Link className="btn btn-primary align-flex-start rounded-5 d-flex justify-content-center align-items-center py-3 px-3" to="/User/add"><FaUserPlus/></Link>
                 </div>
 
             </div>
