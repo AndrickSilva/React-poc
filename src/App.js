@@ -9,7 +9,7 @@ import AddUser from './components/AddUser';
 
 function App() {
   return (
-    <div className="App bg-secondary pb-2">
+    <div className="App bg-secondary pb-2" style={{minHeight: "100vh"}}>
       <Navigation />
       <Routes>
         <Route exact path="/" element={<Home />} />

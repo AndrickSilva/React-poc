@@ -23,8 +23,8 @@ const AddUser = () => {
         navigate("/")
     }
     return (
-        <div className='container shadow my-5 p-4' style={{ maxWidth: "40em" }}>
-            <form onSubmit={e => onSubmit(e)}>
+        <div className='container shadow my-5 p-4 bg-light rounded-4' style={{ maxWidth: "40em" }}>
+            <form onSubmit={e => onSubmit(e)}  className="">
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label d-flex fw-bolder fs-5">Name</label>
                     <input onChange={e => onInputChange(e)} value={user.name} type="text" className="form-control shadow-none rounded-0" name="name" aria-describedby="emailHelp" />
@@ -42,7 +42,7 @@ const AddUser = () => {
                     <input onChange={e => onInputChange(e)} value={user.phone} type="text" className="form-control shadow-none rounded-0" name="phone" />
                 </div>
 
-                <button type="submit" className="btn btn-primary rounded-0 w-100">Submit</button>
+                <button type="submit" className="btn btn-primary rounded-0 w-100 my-2">Submit</button>
             </form>
         </div>
     )

@@ -22,7 +22,7 @@ const Navigation = () => {
                             <NavLink className="nav-link" to="/Contact">Contact</NavLink>
                         </li>
                     </ul>
-                    <Link className="btn btn-primary align-flex-start rounded-5 d-flex justify-content-center align-items-center py-3 px-3" to="/User/add"><FaUserPlus/></Link>
+                    <Link className="btn btn-outline-light align-flex-start rounded-5 d-flex justify-content-center align-items-center p-3" to="/User/add"><FaUserPlus/></Link>
                 </div>
 
             </div>
