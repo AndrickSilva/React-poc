@@ -6,6 +6,8 @@ import About from './components/About';
 import Contact from './components/Contact';
 import NotFound from './components/NotFound';
 import AddUser from './components/AddUser';
+import EditUser from './components/EditUser';
+import ViewUser from './components/ViewUser';
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="About" element={<About />} />
         <Route exact path="Contact" element={<Contact />} />
-        <Route exact path="/User/add" element={<AddUser />} />
+        <Route path="User/add" element={<AddUser />} />
+        <Route path="User/edit/:id" element={<EditUser />} />
+        <Route path="User/:id" element={<ViewUser />} />
         <Route exact path="*" element={<NotFound />} />
       </Routes>
     </div>

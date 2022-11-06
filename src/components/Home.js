@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import {FaEye, FaPen, FaTrash} from 'react-icons/fa'
+import { FaEye, FaPen, FaTrash } from 'react-icons/fa'
+import { Link } from 'react-router-dom';
 
 const Home = () => {
 
@@ -12,8 +13,13 @@ const Home = () => {
 
     const getUsers = async () => {
         const data = await axios.get("http://localhost:3001/users")
-        setUsers(data.data)
-        console.log(data.data);
+        setUsers(data.data.reverse())
+        // console.log(data.data);
+    }
+
+    const deleteUser = async (id) => {
+        await axios.delete(`http://localhost:3001/users/${id}`)
+        getUsers()
     }
 
     return (
@@ -37,9 +43,9 @@ const Home = () => {
                                 <td>{user.username}</td>
                                 <td>{user.email}</td>
                                 <td>
-                                    <button className="btn btn-outline-primary  rounded-0"><FaEye/></button>
-                                    <button className="btn btn-outline-success mx-2 rounded-0"><FaPen/></button>
-                                    <button className="btn btn-outline-danger rounded-0"><FaTrash/></button>
+                                    <Link className="btn btn-outline-primary  rounded-0" to={`/User/${user.id}`} ><FaEye /></Link>
+                                    <Link className="btn btn-outline-success mx-2 rounded-0" to={`/User/edit/${user.id}`} ><FaPen /></Link>
+                                    <button className="btn btn-outline-danger rounded-0" onClick={() => deleteUser(user.id)} ><FaTrash /></button>
                                 </td>
                             </tr>
                         ))
