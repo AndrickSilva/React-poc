@@ -14,7 +14,7 @@ const ViewUser = () => {
 
     useEffect(() => {
         loadUser()
-    });
+    },[]);
 
     const loadUser = async () => {
         const result = await axios.get(`http://localhost:3001/users/${id}`)
@@ -22,7 +22,7 @@ const ViewUser = () => {
     }
     return (
         <div className='container-fluid bg-light pt-4 d-flex justify-content-center align-items-start' style={{ minHeight: '110vh' }}>
-            <div className="d-flex gap-3 card-dark justify-content-center align-items-center p-4 rounded-0" style={{ maxWidth: 'fit-content' }}>
+            <div data-aos="flip-left" className="d-flex gap-3 card-dark justify-content-center align-items-center p-4 rounded-3 card" style={{ maxWidth: 'fit-content' }}>
                 <img src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250" alt='profile' className='rounded-pill' height="100px" width="100px" />
                 <div className="d-flex flex-column m-3">
                     <h2 className='fw-bold '>{user.name}</h2>

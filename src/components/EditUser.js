@@ -20,7 +20,7 @@ const EditUser = () => {
 
     useEffect(()=>{
         loadUser()
-    });
+    },[]);
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -34,7 +34,7 @@ const EditUser = () => {
     }
 
     return (
-        <div className='container shadow my-5 p-4 bg-light rounded-4' style={{ maxWidth: "40em" }}>
+        <div data-aos="fade-up" className='container shadow my-5 p-4 bg-light rounded-1' style={{ maxWidth: "40em" }}>
             <h2 className='fw-bold text-center my-2'>Enter Details</h2>
             <form onSubmit={e => onSubmit(e)} className="">
                 <div className="mb-3">

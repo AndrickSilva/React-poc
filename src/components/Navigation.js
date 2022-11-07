@@ -4,9 +4,9 @@ import {FaUserPlus} from 'react-icons/fa'
 
 const Navigation = () => {
     return (
-        <nav className="navbar navbar-expand-lg bg-dark navbar-dark px-5 py-2">
+        <nav className="navbar navbar-expand-lg bg-dark navbar-dark px-5 py-2 overflow-hidden">
             <div className="container-fluid">
-                <NavLink className="navbar-brand fw-bold fs-3" to="/">CRUD</NavLink>
+                <NavLink className="navbar-brand fw-bold fs-3 " to="/">CRUD</NavLink>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
