@@ -7,13 +7,14 @@ import { gsap } from 'gsap'
 const Home = () => {
 
     const [users, setUsers] = useState([]);
+    const [alert, setAlert] = useState(false);
 
     useEffect(() => {
         getUsers()
     }, []);
-
     gsap.fromTo(".animate", { duration: 0.5, x: 150, stagger: 5 }, { x: -20 })
-    
+
+
 
     const getUsers = async () => {
         const data = await axios.get("http://localhost:3001/users")
@@ -24,10 +25,17 @@ const Home = () => {
     const deleteUser = async (id) => {
         await axios.delete(`http://localhost:3001/users/${id}`)
         getUsers()
+        setAlert(true)
+        setTimeout(() => {
+            setAlert(false)
+        }, 1000);
     }
 
     return (
         <div className='container'>
+            { alert && <div class="alert alert-danger mt-2 alert" role="alert">
+                User deleted successfully!
+            </div>}
             <table className="my-4 table table-secondary shadow">
                 <thead className='table-dark'>
                     <tr>

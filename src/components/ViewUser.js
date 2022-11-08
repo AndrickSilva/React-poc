@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {gsap} from 'gsap';
+import { gsap } from 'gsap';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
@@ -15,9 +15,9 @@ const ViewUser = () => {
 
     useEffect(() => {
         loadUser()
-        gsap.fromTo(".flip", {  rotateY: -180 , parseTransform: true, ease: "Power1.easeOut", scale: 0.5}, {rotateY: 1, scale: 1})
+    }, []);
 
-    },[]);
+    gsap.fromTo(".flip", { rotateY: -180, parseTransform: true, ease: "Power1.easeOut", scale: 0.5 }, { rotateY: 1, scale: 1 })
 
     const loadUser = async () => {
         const result = await axios.get(`http://localhost:3001/users/${id}`)
@@ -26,7 +26,7 @@ const ViewUser = () => {
     return (
         <div className='container-fluid bg-light pt-4 d-flex justify-content-center align-items-start' style={{ minHeight: '110vh' }}>
             <div className="flip d-flex gap-3 card-dark justify-content-center align-items-center p-4 rounded-1 card" style={{ maxWidth: 'fit-content' }}>
-                <img  src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250" alt='profile' className='rounded-pill' height="100px" width="100px" />
+                <img src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250" alt='profile' className='rounded-pill' height="100px" width="100px" />
                 <div className="d-flex flex-column m-3">
                     <h2 className='fw-bold '>{user.name}</h2>
                     <span className='text-secondary'> {user.username} </span>
