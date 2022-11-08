@@ -137,6 +137,34 @@
         "catchPhrase": "Synchronised bottom-line interface",
         "bs": "e-enable innovative applications"
       }
+    },
+    {
+      "name": "Andrick silva",
+      "username": "AJ",
+      "email": "and009@gmail.com",
+      "phone": "9090909090",
+      "id": 7
+    },
+    {
+      "name": "Shweta raul",
+      "username": "SR",
+      "email": "shrau@gmail.com",
+      "phone": "9898765768",
+      "id": 8
+    },
+    {
+      "name": "Gavin",
+      "username": "Peps",
+      "email": "pex@chowgules.ac.in",
+      "phone": "9088790444",
+      "id": 10
+    },
+    {
+      "name": "BLaze M",
+      "username": "Monter",
+      "email": "bla@gamil.com",
+      "phone": "9876546868",
+      "id": 11
     }
   ]
 }

@@ -2,10 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { FaEye, FaPen, FaTrash } from 'react-icons/fa'
 import { Link } from 'react-router-dom';
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
-// ..
-AOS.init();
+import { gsap } from 'gsap'
 
 const Home = () => {
 
@@ -14,6 +11,9 @@ const Home = () => {
     useEffect(() => {
         getUsers()
     }, []);
+
+    gsap.fromTo(".animate", { duration: 0.5, x: 150, stagger: 5 }, { x: -20 })
+    
 
     const getUsers = async () => {
         const data = await axios.get("http://localhost:3001/users")
@@ -47,12 +47,9 @@ const Home = () => {
                                 <td>{user.username}</td>
                                 <td>{user.email}</td>
                                 <td>
-                                    <Link data-aos="fade-left"
-                                        data-aos-offset="300" data-aos-easing="ease-in-sine" className="btn btn-outline-primary  rounded-0" to={`/User/${user.id}`} ><FaEye /></Link>
-                                    <Link data-aos="fade-left"
-                                        data-aos-offset="300" data-aos-easing="ease-in-sine" className="btn btn-outline-success mx-2 rounded-0" to={`/User/edit/${user.id}`} ><FaPen /></Link>
-                                    <button data-aos="fade-left"
-                                        data-aos-offset="300" data-aos-easing="ease-in-sine" className="btn btn-outline-danger rounded-0" onClick={() => deleteUser(user.id)} ><FaTrash /></button>
+                                    <Link className="animate btn btn-outline-primary  rounded-0 " to={`/User/${user.id}`} ><FaEye /></Link>
+                                    <Link className="animate btn btn-outline-success mx-2 rounded-0 " to={`/User/edit/${user.id}`} ><FaPen /></Link>
+                                    <button className="animate btn btn-outline-danger rounded-0 " onClick={() => deleteUser(user.id)} ><FaTrash /></button>
                                 </td>
                             </tr>
                         ))

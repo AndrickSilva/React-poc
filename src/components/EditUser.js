@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import {gsap} from 'gsap'
 
 const EditUser = () => {
     let navigate = useNavigate()
@@ -20,7 +21,7 @@ const EditUser = () => {
 
     useEffect(()=>{
         loadUser()
-    },[]);
+    }, []);
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -33,8 +34,12 @@ const EditUser = () => {
         setUser(result.data);
     }
 
+    useEffect(() => {
+        gsap.fromTo(".fade-up", { duration: 1, y: 550 }, {y: 150})
+    }, [])
+
     return (
-        <div data-aos="fade-up" className='container shadow my-5 p-4 bg-light rounded-1' style={{ maxWidth: "40em" }}>
+        <div className='fade-up container shadow my-5 p-4 bg-light rounded-1' style={{ maxWidth: "40em" }}>
             <h2 className='fw-bold text-center my-2'>Enter Details</h2>
             <form onSubmit={e => onSubmit(e)} className="">
                 <div className="mb-3">

@@ -18,9 +18,6 @@ const Navigation = () => {
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/About">About</NavLink>
                         </li>
-                        <li className="nav-item">
-                            <NavLink className="nav-link" to="/Contact">Contact</NavLink>
-                        </li>
                     </ul>
                     <Link className="btn btn-outline-light align-flex-start rounded-5 d-flex justify-content-center align-items-center p-3" to="/User/add"><FaUserPlus/></Link>
                 </div>
