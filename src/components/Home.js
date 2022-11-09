@@ -12,20 +12,21 @@ const Home = () => {
     useEffect(() => {
         getUsers()
     }, []);
-    gsap.fromTo(".animate", { duration: 0.5, x: 150, stagger: 5 }, { x: -20 })
+    
+    // Animation
+    gsap.fromTo(".animate", { duration: 1.5, x: 150, stagger: 1, once: true }, { x: -30 })
 
-
-
+    // Get user details
     const getUsers = async () => {
         const data = await axios.get("http://localhost:3001/users")
         setUsers(data.data.reverse())
-        // console.log(data.data);
     }
-
+    // Delete user and show alert
     const deleteUser = async (id) => {
         await axios.delete(`http://localhost:3001/users/${id}`)
         getUsers()
         setAlert(true)
+
         setTimeout(() => {
             setAlert(false)
         }, 1000);
@@ -33,7 +34,7 @@ const Home = () => {
 
     return (
         <div className='container'>
-            { alert && <div class="alert alert-danger mt-2 alert" role="alert">
+            {alert && <div class="alert alert-danger mt-2 alert" role="alert">
                 User deleted successfully!
             </div>}
             <table className="my-4 table table-secondary shadow">

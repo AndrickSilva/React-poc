@@ -10,7 +10,7 @@ import ViewUser from './components/ViewUser';
 
 function App() {
   return (
-    <div className="App bg-secondary pb-2 overflow-hidden" style={{minHeight: "100vh"}}>
+    <div className="App bg-secondary pb-2 overflow-hidden " style={{minHeight: "100vh"}}>
       <Navigation />
       <Routes>
         <Route exact path="/" element={<Home />} />

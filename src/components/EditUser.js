@@ -1,11 +1,11 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import {gsap} from 'gsap'
+import { gsap } from 'gsap'
 
 const EditUser = () => {
     let navigate = useNavigate()
-    const {id} = useParams();
+    const { id } = useParams();
     const [user, setUser] = useState({
         name: "",
         username: "",
@@ -13,29 +13,33 @@ const EditUser = () => {
         phone: ""
     })
 
+    // Set the new values
     const onInputChange = e => {
         setUser({ ...user, [e.target.name]: e.target.value })
         console.log(e.target.value);
-
     }
 
-    useEffect(()=>{
-        loadUser()
+    useEffect(() => {
+        loadUser();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    // function to Submit the data
     const onSubmit = async (e) => {
         e.preventDefault();
         await axios.put(`http://localhost:3001/users/${id}`, user)
         navigate("/")
     }
 
+    // Get user details
     const loadUser = async () => {
         const result = await axios.get(`http://localhost:3001/users/${id}`)
         setUser(result.data);
     }
 
+    // Animation
     useEffect(() => {
-        gsap.fromTo(".fade-up", { duration: 1, y: 550 }, {y: 150})
+        gsap.fromTo(".fade-up", { duration: 1.5, y: 250 }, { y: -20 })
     }, [])
 
     return (

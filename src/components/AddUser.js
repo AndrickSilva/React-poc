@@ -12,19 +12,22 @@ const AddUser = () => {
         phone: ""
     })
 
+    // store the values in object
     const onInputChange = e => {
         setUser({ ...user, [e.target.name]: e.target.value })
         console.log(e.target.value);
     }
 
+    // Submit the data and redirect
     const onSubmit = async (e) => {
         e.preventDefault();
         await axios.post('http://localhost:3001/users', user)
         navigate("/")
     }
 
+    // Animation
     useEffect(() => {
-        gsap.fromTo(".fade-up", { duration: 1, y: 550 }, {y: 150})
+        gsap.fromTo(".fade-up", { duration: 1.5, y: 250 }, { y: -20 })
     }, [])
 
 
