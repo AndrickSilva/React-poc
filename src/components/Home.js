@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { FaEye, FaPen, FaTrash } from 'react-icons/fa'
 import { Link } from 'react-router-dom';
-import { gsap } from 'gsap'
+// import { gsap } from 'gsap'
 
 const Home = () => {
 
@@ -11,10 +11,13 @@ const Home = () => {
 
     useEffect(() => {
         getUsers()
+        
     }, []);
     
-    // Animation
-    gsap.fromTo(".animate", { duration: 1.5, x: 150, stagger: 1, once: true }, { x: -30 })
+    // useEffect(()=>{
+        // Animation
+        // gsap.fromTo(".animate", { duration: 1.5, x: 150, stagger: 1, once: true }, { x: -30 })
+    // })
 
     // Get user details
     const getUsers = async () => {
