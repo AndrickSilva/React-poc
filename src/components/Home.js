@@ -9,6 +9,7 @@ const Home = () => {
 
     const [users, setUsers] = useState([]);
     const [alert, setAlert] = useState(false);
+    const [id, setId] = useState(-1);
 
     useEffect(() => {
         getUsers()
@@ -36,9 +37,13 @@ const Home = () => {
         }, 1500);
     }
 
+    const getUser = (id) => {
+        setId(id)
+    }
+
     return (
         <div className='container'>
-            {alert && <div class="alert alert-danger mt-2 alert rounded-1" role="alert">
+            {alert && <div className="alert alert-danger mt-2 alert rounded-1" role="alert">
                 User deleted successfully!
             </div>}
 
@@ -63,28 +68,24 @@ const Home = () => {
                                 <td>
                                     <Link className="animate btn btn-outline-primary  rounded-0 " to={`/User/${user.id}`} ><FaEye /></Link>
                                     <Link className="animate btn btn-outline-success mx-2 rounded-0 " to={`/User/edit/${user.id}`} ><FaPen /></Link>
-                                    {/* Button trigger modal  */}
-                                    <button type="button" class="btn btn-outline-danger rounded-0" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+
+                                    <button type="button" className="btn btn-outline-danger rounded-0" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => getUser(user.id)}>
                                         <FaTrash />
                                     </button>
 
-                                    {/* Modal  */}
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel"> Warning </h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <img src={DeleteImg} alt="Trash img" style={{ maxHeight: "40vh", maxWidth: "40vh", marginLeft: "auto", marginRight: "auto"}}/>
-
+                                    <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div className="modal-dialog">
+                                            <div className="modal-content rounded-1">
+                                                <button type="button" className="btn-close mt-3 ms-3" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <div className="modal-body" style={{ padding: "0 1em" }}>
+                                                    <img src={DeleteImg} alt="Trash img" style={{ maxHeight: "40vh", maxWidth: "40vh", margin: "0 auto", display: "block" }} />
                                                     <h2>Are you sure ?</h2>
                                                     <p>Do you really want to delete these records? This process cannot be undone.</p>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn rounded-0 px-3 btn-outline-secondary" data-bs-dismiss="modal">No</button>
-                                                    <button type="button" class="btn rounded-0 px-3 btn-danger" data-bs-dismiss="modal" onClick={() => deleteUser(user.id)}>Yes</button>
+                                                <div className="modal-footer">
+                                                    <button type="button" className="btn rounded-0 px-3 btn-outline-secondary" data-bs-dismiss="modal">No</button>
+                                                    <button type="button" className="btn rounded-0 px-3 btn-danger" data-bs-dismiss="modal" onClick={() => deleteUser(id)}>Yes</button>
+                                                    {console.log(user.id)}
                                                 </div>
                                             </div>
                                         </div>
